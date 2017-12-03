@@ -10,17 +10,14 @@ var time = document.createElement('p');
 //Agregar eventos
 var button = document.getElementById('button');
 button.addEventListener('click', showTweet);
+var textarea = document.getElementById('message');
+
 
 function showTweet(){
   event.preventDefault();
+  textarea.addEventListener('keyUp', enable);//desabilitar boton
   //variable que guarda el mensaje del usuario
-  var tweet = document.getElementById('message').value;
-  //desabilitar boton si se pasa de caracteres
-  if(tweet.length > 140 || tweet.length === 0){
-    button.disabled = true;
-  }else {
-    button.disabled = false;
-  }
+  var tweet = textarea.value;
   //agregar el mensaje del usuario como contenido del parrafo
    var textTweet = tweetParafraph.innerText = tweet;
    //agregar hijos
@@ -33,6 +30,16 @@ function showTweet(){
    clearTextarea();
 }
 
+function enable(){
+  //desabilitar boton si se pasa de caracteres
+  var contador = textarea.value.length;
+  if (contador > 140 || contador === 0){
+    button.disabled = true;
+  }else {
+    button.disabled = false;
+  }
+}
+
 function clearTextarea(){
-    document.getElementById('message').value = '';
+    textarea.value = '';
 }
