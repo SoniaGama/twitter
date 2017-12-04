@@ -3,7 +3,6 @@ var container = document.getElementById('container');
 
 //Crear Elementos
 var containerTweet = document.createElement('section');
-var tweetParafraph = document.createElement('p');
 var time = document.createElement('p');
 
 //Darles atributos a los elementos creados
@@ -19,6 +18,10 @@ function showTweet(){
   //variable que guarda el mensaje del usuario
   var tweet = textarea.value;
   //textarea.addEventListener('keyUp', enable);//desabilitar boton
+
+    //crear Elementos
+  var tweetParafraph = document.createElement('p');
+
   //agregar el mensaje del usuario como contenido del parrafo
    var textTweet = tweetParafraph.innerText = tweet;
    //agregar hijos
