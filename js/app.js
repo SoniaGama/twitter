@@ -15,9 +15,10 @@ var textarea = document.getElementById('message');
 
 function showTweet(){
   event.preventDefault();
-  textarea.addEventListener('keyUp', enable);//desabilitar boton
+  enable();
   //variable que guarda el mensaje del usuario
   var tweet = textarea.value;
+  //textarea.addEventListener('keyUp', enable);//desabilitar boton
   //agregar el mensaje del usuario como contenido del parrafo
    var textTweet = tweetParafraph.innerText = tweet;
    //agregar hijos
@@ -30,13 +31,15 @@ function showTweet(){
    clearTextarea();
 }
 
+var contador = 0;
+
 function enable(){
   //desabilitar boton si se pasa de caracteres
   var contador = textarea.value.length;
   if (contador > 140 || contador === 0){
-    button.disabled = true;
+    button.setAttribute('disabled', 'disabled');
   }else {
-    button.disabled = false;
+    contador++;
   }
 }
 
