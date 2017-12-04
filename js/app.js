@@ -12,7 +12,7 @@ var button = document.getElementById('button');
 button.addEventListener('click', showTweet);
 var textarea = document.getElementById('message');
 
-
+//enable();
 function showTweet(){
   event.preventDefault();
   enable();
@@ -37,9 +37,9 @@ function enable(){
   //desabilitar boton si se pasa de caracteres
   var contador = textarea.value.length;
   if (contador > 140 || contador === 0){
-    button.setAttribute('disabled', 'disabled');
+    button.disabled = true;
   }else {
-    contador++;
+    button.disabled = false;
   }
 }
 
